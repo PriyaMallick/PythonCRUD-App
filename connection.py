@@ -13,7 +13,7 @@ def allentries():
         for row in cur:
             print(row)
     except:
-        print("Something went wrong! Try again")
+        print("Connection timeout!")
 
 #to view employee details
 def view():
@@ -28,7 +28,7 @@ def view():
             for row in cur:
                 print(row)
     except:
-        print("Something went wrong! Try again")
+        print("Connection timeout!")
 
 #to add new employee
 def add():
@@ -42,7 +42,7 @@ def add():
         conn.commit()
         print("Employee Added")
     except:
-        print("Something went wrong! Try again")
+        print("Connection timeout!")
 
 #to update records
 def update():
@@ -76,7 +76,7 @@ def update():
                 print("invalid option")
             print("Updated")
     except:
-        print("Something went wrong! Try again")
+        print("Connection timeout!")
 #to perform delete operation
 def delete():
     try:
@@ -90,7 +90,7 @@ def delete():
             conn.commit()
             print("Employee details deleted")
     except:
-        print("Something went wrong! Try again")
+        print("Connection timeout!")
 #main function
 def main():
     try:
@@ -116,8 +116,10 @@ def main():
         x= input("Do you want to perform more operations (Yes/No) :  ")
         if (x.lower()=="yes"):
             main()
-        else:
+        elif x.lower()== "no":
             print("Bye!")
+        else:
+            print("Give valid input")
     except:
         print("Something went wrong! Try again")
 #to check employee id is present or not
@@ -129,5 +131,5 @@ def check():
             list.append(row[0])
         return list
     except:
-        print("Something went wrong! Try again")
+        print("Connection timeout!")
 main()
